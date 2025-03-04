@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\Auth\LoginController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\TodoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +17,7 @@ Route::post('login', [LoginController::class, 'login']);
 // 認証が必要なルーティング
 Route::middleware('auth:sanctum')->group(function () {
     // ログアウト処理
-    Route::middleware('auth:sanctum')->post('logout', [LoginController::class, 'logout']);
+    Route::post('logout', [LoginController::class, 'logout']);
 
     // /user ルート: 認証されたユーザーの情報を返す
     Route::get('/user', function (Request $request) {
